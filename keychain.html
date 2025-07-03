@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keychains | RIRE Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #FFD1DC;
+            --pastel-purple: #E6E6FA;
+            --pastel-blue: #B5D3E7;
+            --pastel-lavender: #D8BFD8;
+            --pastel-peach: #FFDAB9;
+            --text-dark: #5D5D5D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-dark);
+            background-color: #FFF9FB;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Parisienne', cursive;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        nav ul li a:hover {
+            color: var(--pastel-purple);
+            border-bottom: 2px solid var(--pastel-purple);
+        }
+        
+        .page-hero {
+            height: 50vh;
+            background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e3339651-37be-4b1f-aa74-820d67cad12a.png');
+            opacity: 0.1;
+            background-repeat: repeat;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        
+        .page-hero-content h1 {
+            font-family: 'Parisienne', cursive;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .products {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Parisienne', cursive;
+            font-size: 3rem;
+            color: var(--text-dark);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .product-info p {
+            margin-bottom: 15px;
+            color: #777;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--pastel-purple);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--pastel-blue);
+        }
+        
+        footer {
+            background-color: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-logo {
+            font-family: 'Parisienne', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        
+        .social-links {
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--pastel-pink);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background-color: var(--pastel-purple);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .page-hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">RIRE Studio</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="keychain.html">Keychains</a></li>
+                        <li><a href="bracelet.html">Bracelets</a></li>
+                        <li><a href="candles.html">Candles</a></li>
+                        <li><a href="pottery.html">Pottery</a></li>
+                        <li><a href="painting.html">Art</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Keychains</h1>
+            <p>Delicate charms to brighten your everyday</p>
+        </div>
+    </section>
+    
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">Our Keychains</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c98fa15e-2cd3-4666-bbaa-f6e87cae50ad.png" alt="Pastel floral keychain with delicate porcelain flowers on a gold tone ring">
+                    </div>
+                    <div class="product-info">
+                        <h3>Floral Charm Keychain</h3>
+                        <p>Handcrafted porcelain flowers with gold plating</p>
+                        <div class="product-price">$18.99</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c55784d9-43be-4647-b404-377d3c372e7d.png" alt="Personalized initial keychain with soft pink acrylic letter and pearl beads">
+                    </div>
+                    <div class="product-info">
+                        <h3>Initial Keychain</h3>
+                        <p>Customizable with your initial and pearl beads</p>
+                        <div class="product-price">$22.99</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/65be52ae-2fa2-4cdd-bc29-7de727a67716.png" alt="Pastel blue tassel keychain with silk threads and silver hardware">
+                    </div>
+                    <div class="product-info">
+                        <h3>Silk Tassel Keychain</h3>
+                        <p>Luxurious silk tassels with silver plated hardware</p>
+                        <div class="product-price">$16.99</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d6de0ea4-a21c-4e3a-8303-465e7b56dc0a.png" alt="Multicolor pastel beaded keychain with intricate pattern">
+                    </div>
+                    <div class="product-info">
+                        <h3>Beaded Keychain</h3>
+                        <p>Hand-strung glass beads in intricate patterns</p>
+                        <div class="product-price">$24.99</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/036237d3-ab77-4c3f-b1eb-a3b162abfc57.png" alt="Moonstone crystal keychain with sterling silver wire wrapping">
+                    </div>
+                    <div class="product-info">
+                        <h3>Moonstone Keychain</h3>
+                        <p>Natural moonstone with hand-wrapped silver wire</p>
+                        <div class="product-price">$28.99</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f41b4128-bc5b-473c-8ba5-90b8d7bdfffc.png" alt="Delicate freshwater pearl keychain with gold plated charm">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pearl Cluster Keychain</h3>
+                        <p>Freshwater pearls arranged in delicate clusters</p>
+                        <div class="product-price">$32.99</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-logo">RIRE Studio</div>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Contact</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="social-links">
+                <a href="#">I</a>
+                <a href="#">T</a>
+                <a href="#">F</a>
+                <a href="#">P</a>
+            </div>
+            <div class="copyright">
+                © 2023 RIRE Studio. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

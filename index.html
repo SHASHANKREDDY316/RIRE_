@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIRE Studio | Handcrafted Women's Accessories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #FFD1DC;
+            --pastel-purple: #E6E6FA;
+            --pastel-blue: #B5D3E7;
+            --pastel-lavender: #D8BFD8;
+            --pastel-peach: #FFDAB9;
+            --text-dark: #5D5D5D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-dark);
+            background-color: #FFF9FB;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Parisienne', cursive;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        nav ul li a:hover {
+            color: var(--pastel-purple);
+            border-bottom: 2px solid var(--pastel-purple);
+        }
+        
+        .hero {
+            height: 80vh;
+            background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7c4c0c1e-5ecc-4c94-a817-42956830f217.png');
+            opacity: 0.1;
+            background-repeat: repeat;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Parisienne', cursive;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--text-dark);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .categories {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Parisienne', cursive;
+            font-size: 3rem;
+            color: var(--text-dark);
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .category-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.05);
+        }
+        
+        .category-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .category-info h3 {
+            font-family: 'Parisienne', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background-color: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-logo {
+            font-family: 'Parisienne', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        
+        .social-links {
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--pastel-pink);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background-color: var(--pastel-purple);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">RIRE Studio</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="keychain.html">Keychains</a></li>
+                        <li><a href="bracelet.html">Bracelets</a></li>
+                        <li><a href="candles.html">Candles</a></li>
+                        <li><a href="pottery.html">Pottery</a></li>
+                        <li><a href="painting.html">Art</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>RIRE Studio</h1>
+            <p>Handcrafted women's accessories made with love and care</p>
+            <a href="#categories" class="btn">Explore Collections</a>
+        </div>
+    </section>
+    
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Our Collections</h2>
+            <div class="category-grid">
+                <a href="keychain.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d259c78f-83f6-48b9-8060-2ac04fc2459e.png" alt="Pastel-colored handmade keychains with delicate charms and tassels displayed on a wooden tray">
+                    </div>
+                    <div class="category-info">
+                        <h3>Keychains</h3>
+                        <p>Delicate charms to brighten your everyday</p>
+                    </div>
+                </a>
+                
+                <a href="bracelet.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dbd4feca-edcb-4e2e-b761-ef1142d86f2e.png" alt="Pastel beaded bracelets stacked on a model's wrist showing soft color combinations">
+                    </div>
+                    <div class="category-info">
+                        <h3>Bracelets</h3>
+                        <p>Elegant beaded pieces for subtle sophistication</p>
+                    </div>
+                </a>
+                
+                <a href="candles.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/185b166a-ec7c-464c-b556-9ccaf2817560.png" alt="Pastel wax candles in various soft shapes arranged on a marble surface">
+                    </div>
+                    <div class="category-info">
+                        <h3>Candles</h3>
+                        <p>Hand-poured aromatic wax with soothing scents</p>
+                    </div>
+                </a>
+                
+                <a href="pottery.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e82a7f4b-72fe-49e2-9bad-6477f5ba5f22.png" alt="Pastel glazed ceramic mugs and bowls arranged in a kiln with soft lighting">
+                    </div>
+                    <div class="category-info">
+                        <h3>Pottery</h3>
+                        <p>Unique ceramic pieces for your home</p>
+                    </div>
+                </a>
+                
+                <a href="painting.html" class="category-card">
+                    <div class="category-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c7202762-2265-4d5a-9750-6edbffc2bc34.png" alt="Soft pastel abstract paintings displayed on a gallery wall with natural light">
+                    </div>
+                    <div class="category-info">
+                        <h3>Art</h3>
+                        <p>Original paintings to inspire your space</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-logo">RIRE Studio</div>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Contact</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="social-links">
+                <a href="#">I</a>
+                <a href="#">T</a>
+                <a href="#">F</a>
+                <a href="#">P</a>
+            </div>
+            <div class="copyright">
+                © 2023 RIRE Studio. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
